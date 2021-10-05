@@ -1,0 +1,28 @@
+<template>
+    <div class="slds-card">
+        <div class="slds-m-bottom_large">
+            <lightning-input placeholder="Search by Id" onchange={handleSearchById}></lightning-input>
+        </div>
+        <div class="slds-m-bottom_large">
+            <table>
+                <tr>
+                    <th onclick={sortTableById}>Id</th>
+                    <th>Title</th>
+                    <th>Body</th>
+                </tr>
+                <template for:each={pageList} for:item="post">
+                    <tr key={post.id}>
+                        <td>{post.id}</td>
+                        <td>{post.title}</td>
+                        <td>{post.body}</td>
+                    </tr>
+                </template>
+            </table>
+        </div>
+
+        <div>
+            <button onclick={handlePrevious} disabled={disablePrevious}>Previous</button>
+            <button onclick={handleNext} disabled={disableNext}>Next</button>
+        </div>
+    </div>
+</template>
